@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}}</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 0; padding: 0;
+      background-color: #f4f4f4; color: #333333; } .email-container {
+      {{styles.emailContainer}}
+      } .email-header {
+      {{styles.emailHeader}}
+      } .email-subheader {
+      {{styles.emailSubheader}}
+      } .email-body {
+      {{styles.emailBody}}
+      } .body-content {
+      {{styles.bodyContent}}
+      } .image {
+      {{styles.image}}
+      } .cta-container {
+      {{styles.ctaContainer}}
+      } .cta-button {
+      {{styles.ctaButton}}
+      } .email-footer {
+      {{styles.emailFooter}}
+      } .unsubscribe-container {
+      {{styles.unsubscribeContainer}}
+      } .unsubscribe-link {
+      {{styles.unsubscribeLink}}
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-container">
+      <div class="email-header">{{{title}}}</div>
+      {{#if subheader}}
+        <div class="email-subheader">{{{subheader}}}</div>
+      {{/if}}
+      <div class="email-body">
+        <div class="body-content">{{{content}}}</div>
+        {{#if image}}
+          <img src="{{image}}" alt="Email Image" class="image" />
+        {{/if}}
+        {{#if (and ctaText ctaUrl)}}
+          <div class="cta-container">
+            <a href="{{ctaUrl}}" class="cta-button">{{ctaText}}</a>
+          </div>
+        {{/if}}
+      </div>
+      <div class="email-footer">
+        <div>{{{footer}}}</div>
+        {{#if unsubscribeUrl}}
+          <div class="unsubscribe-container">
+            <a href="{{unsubscribeUrl}}" class="unsubscribe-link">
+              Unsubscribe
+            </a>
+          </div>
+        {{/if}}
+      </div>
+    </div>
+  </body>
+</html>
