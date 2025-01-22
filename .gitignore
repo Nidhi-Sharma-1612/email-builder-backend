@@ -1,0 +1,53 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build files and directories
+/build
+/dist
+
+# Coverage reports
+coverage/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Debugging files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Output files
+*.out
+
+
+# Operating system files
+*.DS_Store
+*.directory
+
+# Other specific files/folders
+/uploads/       # If you are storing uploaded files locally
+*.log           # Application logs
+debug/          # Debug files or temporary data
