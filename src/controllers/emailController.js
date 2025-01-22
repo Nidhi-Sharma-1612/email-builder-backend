@@ -79,15 +79,27 @@ export const uploadEmailConfig = async (req, res) => {
   try {
     const { title, content, footer, image } = req.body;
 
+    // Validate required fields
+    if (!title || !content || !footer) {
+      return res.status(400).json({ error: "Missing required fields" });
+    }
+
+    // Validate the image URL (Optional: Ensure it is a Supabase URL)
+    if (image && !image.startsWith("https://")) {
+      return res.status(400).json({ error: "Invalid image URL provided" });
+    }
+
     const emailTemplate = new EmailTemplate({
       title,
       content,
       footer,
-      image,
+      image, // Save the Supabase image URL directly
     });
 
     const savedTemplate = await emailTemplate.save();
+
     logger.info("Email template saved successfully", { id: savedTemplate._id });
+
     return res.status(201).json({
       message: "Email template saved successfully",
       emailTemplate: savedTemplate,
